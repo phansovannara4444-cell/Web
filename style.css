@@ -48,11 +48,42 @@ body.light-mode .spec-item { background:rgba(0,0,0,.03); }
 body.light-mode .dropzone { background:var(--card); border-color:rgba(0,0,0,.12); }
 
 /* ===== THEME TOGGLE ===== */
-.theme-toggle { width:44px; height:24px; background:var(--card); border:1px solid var(--border); border-radius:999px; cursor:pointer; position:relative; flex-shrink:0; box-shadow:var(--shadow-sm); padding:0; overflow:hidden; }
-.theme-toggle::after { content:''; position:absolute; top:3px; left:3px; width:16px; height:16px; border-radius:50%; background:var(--red); transition:transform .3s ease; z-index:1; }
-body.light-mode .theme-toggle::after { transform:translateX(20px); }
-.toggle-moon { position:absolute; left:4px; top:50%; transform:translateY(-50%); font-size:10px; line-height:1; pointer-events:none; z-index:0; }
-.toggle-sun  { position:absolute; right:3px; top:50%; transform:translateY(-50%); font-size:10px; line-height:1; pointer-events:none; z-index:0; }
+.theme-toggle {
+    width: 44px; height: 24px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 999px; cursor: pointer; position: relative;
+    flex-shrink: 0; box-shadow: var(--shadow-sm); padding: 0;
+    overflow: hidden;
+}
+/* sliding pill */
+.theme-toggle::after {
+    content: ''; position: absolute;
+    top: 3px; left: 3px; width: 16px; height: 16px;
+    border-radius: 50%; background: var(--red);
+    transition: transform .3s ease; z-index: 1;
+}
+body.light-mode .theme-toggle::after { transform: translateX(20px); }
+body.light-mode .toggle-sun { box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #f59e0b; }
+body.light-mode .toggle-moon { box-shadow: 2px -1px 0 2px #6b7280; }
+
+/* moon icon — crescent via box-shadow clip */
+.toggle-moon {
+    position: absolute; left: 4px; top: 50%; transform: translateY(-50%);
+    width: 10px; height: 10px; border-radius: 50%;
+    background: transparent;
+    box-shadow: 2px -1px 0 2px #c8d2e1;
+    pointer-events: none; z-index: 0;
+    display: block;
+}
+/* sun icon — circle with rays via outline */
+.toggle-sun {
+    position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #f59e0b;
+    box-shadow: 0 0 0 2px #212428, 0 0 0 3px #f59e0b;
+    pointer-events: none; z-index: 0;
+    display: block;
+}
 
 /* smooth theme transition on all elements */
 *, *::before, *::after { transition:background-color .3s ease, border-color .3s ease, color .2s ease, box-shadow .3s ease; }

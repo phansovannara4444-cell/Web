@@ -36,23 +36,16 @@
 <header class="header" id="header">
     <nav class="nav container-nav">
 
+        <!--
+        ══════════════════════════════════════════════════════════
+        YOUR LOGO — Two options:
+        Option A (Text Logo — current): Keep the PS. text logo
+        Option B (Image Logo): Replace the <a> content with:
+            <img src="assets/images/logo.png" alt="Logo" style="height:38px;">
+        ══════════════════════════════════════════════════════════
+        -->
         <a href="#home" class="nav-logo">
-            <!--
-            ══════════════════════════════════════════════════════════
-            IMAGE LOGO — save your logo file as: assets/images/logo.png
-            Then the image will show automatically.
-            If the image fails to load, the "PS." text logo shows instead.
-            ══════════════════════════════════════════════════════════
-            -->
-            <img
-                src="assets/images/logo.png"
-                alt="PS Logo"
-                class="logo-img"
-                onerror="this.style.display='none'; document.getElementById('logoText').style.display='flex';"
-            >
-            <span id="logoText" class="logo-text-fallback" style="display:none;">
-                <span class="logo-ps">PS</span><span class="logo-dot">.</span>
-            </span>
+            <span class="logo-ps">PS</span><span class="logo-dot">.</span>
         </a>
 
         <div class="nav-menu" id="navMenu">
@@ -72,8 +65,8 @@
 
         <div class="nav-actions">
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark mode">
-                <span class="toggle-moon">🌙</span>
-                <span class="toggle-sun">☀️</span>
+                <span class="toggle-moon"></span>
+                <span class="toggle-sun"></span>
             </button>
             <a href="#contact" class="btn btn-hire">Hire Me</a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
