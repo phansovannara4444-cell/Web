@@ -94,12 +94,6 @@ const DRIVE_FOLDERS = {
     function driveDownloadUrl(id) { return `https://drive.google.com/uc?export=download&id=${id}`; }
     function driveThumbnailUrl(id){ return `https://drive.google.com/thumbnail?id=${id}&sz=w400`; }
 
-    // ── Mobile detection ──────────────────────────────────────
-    function isMobile() {
-        return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)
-            || window.innerWidth <= 768;
-    }
-
     // ── Helpers ───────────────────────────────────────────────
     function esc(s) {
         if (!s) return '';
@@ -171,19 +165,13 @@ const DRIVE_FOLDERS = {
     }
 
     function openModal(file) {
-        // On mobile, Google Drive iframes are blocked — open file directly instead
-        if (isMobile()) {
-            window.open(driveDownloadUrl(file.id), '_blank', 'noopener');
-            return;
-        }
-
         const m  = getModal();
         const t  = meta(file.type);
         document.getElementById('gdv-modal-title').textContent = file.title;
         const badge = document.getElementById('gdv-modal-badge');
         badge.className   = `gdv-modal-badge ${t.cls}`;
         badge.textContent = t.label;
-        document.getElementById('gdv-modal-dl').href = driveDownloadUrl(file.id);
+        document.getElementById('gdv-modal-dl').href     = driveDownloadUrl(file.id);
 
         const body = document.getElementById('gdv-modal-body');
         if (file.type === 'image') {
@@ -284,22 +272,20 @@ const DRIVE_FOLDERS = {
             ${file.date ? `<span class="gdv-proj-date"><i class="ri-calendar-line"></i> ${fmtDate(file.date)}</span>` : ''}
         </div>
         <div class="gdv-proj-actions">
-            <button class="gdv-proj-btn gdv-proj-view" title="Open file">
+            <a class="gdv-proj-btn gdv-proj-view" href="${driveDownloadUrl(file.id)}" target="_blank" rel="noopener" title="Open file">
                 <i class="ri-eye-line"></i> View
-            </button>
-            <a class="gdv-proj-btn gdv-proj-dl" href="${driveDownloadUrl(file.id)}" target="_blank" title="Download">
+            </a>
+            <a class="gdv-proj-btn gdv-proj-dl" href="${driveDownloadUrl(file.id)}" target="_blank" rel="noopener" title="Download">
                 <i class="ri-download-line"></i> Download
             </a>
         </div>
     </div>
 </div>`;
 
-            item.querySelector('.gdv-proj-view').addEventListener('click', (e) => {
-                e.preventDefault();
-                openModal(file);  // openModal handles mobile redirect internally
+            // Cover click opens file directly (works on mobile)
+            item.querySelector('.gdv-proj-cover').addEventListener('click', () => {
+                window.open(driveDownloadUrl(file.id), '_blank', 'noopener');
             });
-            // Clicking the cover also opens preview / download
-            item.querySelector('.gdv-proj-cover').addEventListener('click', () => openModal(file));
             list.appendChild(item);
         });
 
@@ -348,14 +334,11 @@ const DRIVE_FOLDERS = {
     <div class="gdv-card-date"><i class="ri-calendar-line"></i> ${fmtDate(file.date)}</div>
 </div>
 <div class="gdv-card-actions">
-    <button class="gdv-action-btn gdv-preview-btn"><i class="ri-eye-line"></i> View</button>
-    <a class="gdv-action-btn gdv-dl-btn" href="${driveDownloadUrl(file.id)}" target="_blank"><i class="ri-download-line"></i></a>
+    <a class="gdv-action-btn gdv-preview-btn" href="${driveDownloadUrl(file.id)}" target="_blank" rel="noopener"><i class="ri-eye-line"></i> View</a>
+    <a class="gdv-action-btn gdv-dl-btn" href="${driveDownloadUrl(file.id)}" target="_blank" rel="noopener"><i class="ri-download-line"></i></a>
 </div>`;
 
-            card.querySelector('.gdv-preview-btn').addEventListener('click', (e) => {
-                e.preventDefault();
-                openModal(file);  // openModal handles mobile redirect internally
-            });
+            // preview btn is now a real <a> link — no JS needed
             grid.appendChild(card);
         });
 
