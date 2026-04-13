@@ -94,6 +94,12 @@ const DRIVE_FOLDERS = {
     function driveDownloadUrl(id) { return `https://drive.google.com/uc?export=download&id=${id}`; }
     function driveThumbnailUrl(id){ return `https://drive.google.com/thumbnail?id=${id}&sz=w400`; }
 
+    // ── Mobile detection ──────────────────────────────────────
+    function isMobile() {
+        return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)
+            || window.innerWidth <= 768;
+    }
+
     // ── Helpers ───────────────────────────────────────────────
     function esc(s) {
         if (!s) return '';
@@ -165,13 +171,19 @@ const DRIVE_FOLDERS = {
     }
 
     function openModal(file) {
+        // On mobile, Google Drive iframes are blocked — open file directly instead
+        if (isMobile()) {
+            window.open(driveDownloadUrl(file.id), '_blank', 'noopener');
+            return;
+        }
+
         const m  = getModal();
         const t  = meta(file.type);
         document.getElementById('gdv-modal-title').textContent = file.title;
         const badge = document.getElementById('gdv-modal-badge');
         badge.className   = `gdv-modal-badge ${t.cls}`;
         badge.textContent = t.label;
-        document.getElementById('gdv-modal-dl').href     = driveDownloadUrl(file.id);
+        document.getElementById('gdv-modal-dl').href = driveDownloadUrl(file.id);
 
         const body = document.getElementById('gdv-modal-body');
         if (file.type === 'image') {
@@ -272,7 +284,7 @@ const DRIVE_FOLDERS = {
             ${file.date ? `<span class="gdv-proj-date"><i class="ri-calendar-line"></i> ${fmtDate(file.date)}</span>` : ''}
         </div>
         <div class="gdv-proj-actions">
-            <button class="gdv-proj-btn gdv-proj-view" title="Preview">
+            <button class="gdv-proj-btn gdv-proj-view" title="Open file">
                 <i class="ri-eye-line"></i> View
             </button>
             <a class="gdv-proj-btn gdv-proj-dl" href="${driveDownloadUrl(file.id)}" target="_blank" title="Download">
@@ -282,8 +294,11 @@ const DRIVE_FOLDERS = {
     </div>
 </div>`;
 
-            item.querySelector('.gdv-proj-view').addEventListener('click', () => openModal(file));
-            // Clicking the cover also opens preview
+            item.querySelector('.gdv-proj-view').addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(file);  // openModal handles mobile redirect internally
+            });
+            // Clicking the cover also opens preview / download
             item.querySelector('.gdv-proj-cover').addEventListener('click', () => openModal(file));
             list.appendChild(item);
         });
@@ -337,7 +352,10 @@ const DRIVE_FOLDERS = {
     <a class="gdv-action-btn gdv-dl-btn" href="${driveDownloadUrl(file.id)}" target="_blank"><i class="ri-download-line"></i></a>
 </div>`;
 
-            card.querySelector('.gdv-preview-btn').addEventListener('click', () => openModal(file));
+            card.querySelector('.gdv-preview-btn').addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(file);  // openModal handles mobile redirect internally
+            });
             grid.appendChild(card);
         });
 
