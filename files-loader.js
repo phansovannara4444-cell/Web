@@ -272,20 +272,25 @@ const DRIVE_FOLDERS = {
             ${file.date ? `<span class="gdv-proj-date"><i class="ri-calendar-line"></i> ${fmtDate(file.date)}</span>` : ''}
         </div>
         <div class="gdv-proj-actions">
-            <a class="gdv-proj-btn gdv-proj-view" href="${driveDownloadUrl(file.id)}" target="_blank" rel="noopener" title="Open file">
-                <i class="ri-eye-line"></i> View
+            <a class="gdv-proj-btn gdv-proj-view" href="${driveDownloadUrl(file.id)}" target="_blank" rel="noopener noreferrer">
+                <i class="ri-eye-line"></i> Open
             </a>
-            <a class="gdv-proj-btn gdv-proj-dl" href="${driveDownloadUrl(file.id)}" target="_blank" rel="noopener" title="Download">
+            <a class="gdv-proj-btn gdv-proj-dl" href="${driveDownloadUrl(file.id)}" target="_blank" rel="noopener noreferrer" download>
                 <i class="ri-download-line"></i> Download
             </a>
         </div>
     </div>
 </div>`;
 
-            // Cover click opens file directly (works on mobile)
-            item.querySelector('.gdv-proj-cover').addEventListener('click', () => {
-                window.open(driveDownloadUrl(file.id), '_blank', 'noopener');
+            // Desktop: View button opens modal
+            item.querySelector('.gdv-proj-view').addEventListener('click', (e) => {
+                if (window.innerWidth > 768) {
+                    e.preventDefault();
+                    openModal(file);
+                }
+                // On mobile: default anchor behaviour opens the URL directly — no JS needed
             });
+
             list.appendChild(item);
         });
 
@@ -334,11 +339,17 @@ const DRIVE_FOLDERS = {
     <div class="gdv-card-date"><i class="ri-calendar-line"></i> ${fmtDate(file.date)}</div>
 </div>
 <div class="gdv-card-actions">
-    <a class="gdv-action-btn gdv-preview-btn" href="${driveDownloadUrl(file.id)}" target="_blank" rel="noopener"><i class="ri-eye-line"></i> View</a>
-    <a class="gdv-action-btn gdv-dl-btn" href="${driveDownloadUrl(file.id)}" target="_blank" rel="noopener"><i class="ri-download-line"></i></a>
+    <a class="gdv-action-btn gdv-preview-btn" href="${driveDownloadUrl(file.id)}" target="_blank" rel="noopener noreferrer"><i class="ri-eye-line"></i> View</a>
+    <a class="gdv-action-btn gdv-dl-btn" href="${driveDownloadUrl(file.id)}" target="_blank" rel="noopener noreferrer"><i class="ri-download-line"></i></a>
 </div>`;
 
-            // preview btn is now a real <a> link — no JS needed
+            card.querySelector('.gdv-preview-btn').addEventListener('click', (e) => {
+                if (window.innerWidth > 768) {
+                    e.preventDefault();
+                    openModal(file);
+                }
+                // Mobile: anchor fires naturally, opens file directly
+            });
             grid.appendChild(card);
         });
 
@@ -602,6 +613,7 @@ const DRIVE_FOLDERS = {
     border-radius: 14px; overflow: hidden;
     transition: transform .22s, border-color .22s, box-shadow .22s;
     position: relative;
+    text-decoration: none; color: inherit; cursor: pointer;
 }
 .gdv-project-item::before {
     content: ''; position: absolute; inset: 0 auto 0 0;
@@ -718,14 +730,17 @@ const DRIVE_FOLDERS = {
 
 /* Responsive */
 @media (max-width:640px) {
-    .gdv-proj-cover { width:90px; min-width:90px; }
-    .gdv-proj-num   { width:2rem; min-width:2rem; font-size:.9rem; }
-    .gdv-proj-body  { padding:.7rem .8rem; }
-    .gdv-proj-actions .gdv-proj-dl { display:none; }
+    .gdv-proj-cover { width:80px; min-width:80px; }
+    .gdv-proj-num   { width:1.8rem; min-width:1.8rem; font-size:.85rem; }
+    .gdv-proj-body  { padding:.7rem .75rem; }
+    .gdv-proj-actions { gap:.3rem; }
+    .gdv-proj-btn   { font-size:.68rem; padding:.28rem .6rem; }
 }
 @media (max-width:420px) {
     .gdv-proj-cover { display:none; }
-    .gdv-proj-actions { display:none; }
+    .gdv-proj-num   { display:none; }
+    .gdv-proj-actions { gap:.3rem; }
+    .gdv-proj-btn   { font-size:.68rem; padding:.28rem .6rem; }
 }
         `;
         document.head.appendChild(s);
