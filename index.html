@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHORN SOVANNARA – Telecommunications & Electronic Engineering</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    <!--
+    ╔══════════════════════════════════════════════════════════════╗
+    ║              HOW TO ADD YOUR LOGO & PHOTO                   ║
+    ╠══════════════════════════════════════════════════════════════╣
+    ║  STEP 1 — Create folder:  assets/images/                    ║
+    ║                                                              ║
+    ║  STEP 2 — LOGO (browser tab icon):                          ║
+    ║    • Save your logo as:  assets/images/logo.png             ║
+    ║    • Uncomment the line below ↓                             ║
+    ║      <link rel="icon" href="assets/images/logo.png">        ║
+    ║                                                              ║
+    ║  STEP 3 — PROFILE PHOTO:                                     ║
+    ║    • Save your photo as: assets/images/profile.jpg          ║
+    ║    • Find the <img id="heroPhoto"> tag below                 ║
+    ║    • The photo will appear automatically once the file exists║
+    ║                                                              ║
+    ║  TIP: Use a photo with white/dark background                 ║
+    ║       Recommended size: 400×500px or portrait crop          ║
+    ╚══════════════════════════════════════════════════════════════╝
+    -->
+    <!-- <link rel="icon" href="assets/images/logo.png"> -->
+</head>
+<body>
+
+<!-- ====== HEADER ====== -->
+<header class="header" id="header">
+    <nav class="nav container-nav">
+
+        <a href="#home" class="nav-logo">
+            <!--
+            ══════════════════════════════════════════════════════════
+            IMAGE LOGO — save your logo file as: assets/images/logo.png
+            Then the image will show automatically.
+            If the image fails to load, the "PS." text logo shows instead.
+            ══════════════════════════════════════════════════════════
+            -->
+            <img
+                src="assets/images/logo.png"
+                alt="PS Logo"
+                class="logo-img"
+                onerror="this.style.display='none'; document.getElementById('logoText').style.display='flex';"
+            >
+            <span id="logoText" class="logo-text-fallback" style="display:none;">
+                <span class="logo-ps">PS</span><span class="logo-dot">.</span>
+            </span>
+        </a>
+
+        <div class="nav-menu" id="navMenu">
+            <ul class="nav-list">
+                <li><a href="#home"          class="nav-link active">Home</a></li>
+                <li><a href="#features"      class="nav-link">Features</a></li>
+                <li><a href="#portfolio"     class="nav-link">Portfolio</a></li>
+                <li><a href="#resume"        class="nav-link">Resume</a></li>
+                <li><a href="#studentreport" class="nav-link">Student Report</a></li>
+                <li><a href="#cad3d"         class="nav-link">3D CAD</a></li>
+                <li><a href="#myproject"     class="nav-link">My Project</a></li>
+                <li><a href="#batterypack"   class="nav-link">Battery Pack</a></li>
+                <li><a href="#blog"          class="nav-link">Blog</a></li>
+                <li><a href="#contact"       class="nav-link">Contact Me</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+                <span class="toggle-moon">🌙</span>
+                <span class="toggle-sun">☀️</span>
+            </button>
+            <a href="#contact" class="btn btn-hire">Hire Me</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <i class="ri-menu-3-line"></i>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+<!-- ====== HOME ====== -->
+<section class="home" id="home">
+    <div class="container">
+        <div class="home-content">
+            <div class="home-data">
+                <p class="home-subtitle">Welcome to my world</p>
+                <h1 class="home-title">
+                    Hi, I'm <span class="highlight">PHORN SOVANNARA</span>
+                    <span class="role-line" id="typed-role"></span>
+                    <span class="typed-line2" id="typed-role2"></span>
+                </h1>
+                <p class="home-description">
+                    Passionate about Telecommunications &amp; Electronic Engineering — designing circuits, building drones, creating 3D models, and developing IoT systems that solve real-world problems.
+                </p>
+                <div class="home-meta">
+                    <div class="home-social">
+                        <p class="meta-label">Find with me</p>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/profile.php?id=100030104352977&mibextid=b06tZ0" class="social-link" title="Facebook" target="_blank"><i class="ri-facebook-fill"></i></a>
+                            <a href="https://www.tiktok.com/@bs.power9" class="social-link" title="TikTok" target="_blank"><i class="ri-tiktok-fill"></i></a>
+                            <a href="https://www.youtube.com/@sovannara_phorn_12" class="social-link" title="YouTube" target="_blank"><i class="ri-youtube-fill"></i></a>
+                            <a href="https://t.me/P_Sovannara" class="social-link" title="Telegram" target="_blank"><i class="ri-telegram-fill"></i></a>
+                        </div>
+                    </div>
+                    <div class="home-skills-preview">
+                        <p class="meta-label">Top Skills</p>
+                        <div class="skill-icons">
+                            <a href="#features" class="skill-icon" title="Electronics"><i class="ri-cpu-line"></i></a>
+                            <a href="#cad3d"    class="skill-icon" title="3D CAD"><i class="ri-box-3-line"></i></a>
+                            <a href="#features" class="skill-icon" title="Drone"><i class="ri-flight-takeoff-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-btns">
+                    <a href="#myproject" class="btn btn-primary"><i class="ri-folder-4-line"></i> View Projects</a>
+                    <!-- Replace CV_FILE_ID with your Google Drive CV file ID -->
+                    <a href="https://drive.google.com/uc?export=download&id=CV_FILE_ID" class="btn btn-outline" id="downloadCVBtn" target="_blank">
+                        <i class="ri-download-line"></i> Download CV
+                    </a>
+                </div>
+            </div>
+
+            <!-- PROFILE PHOTO SECTION
+                 ════════════════════════════════════════════════════
+                 To add your photo:
+                 1. Create folder: assets/images/
+                 2. Save your photo as: assets/images/profile.jpg
+                 The placeholder box below will be replaced by your photo.
+                 ════════════════════════════════════════════════════ -->
+            <div class="home-image">
+                <div class="image-wrapper">
+                    <div class="image-ring ring-1"></div>
+                    <div class="image-ring ring-2"></div>
+                    <img
+                        id="heroPhoto"
+                        src="assets/images/profile.jpg"
+                        alt="PHORN SOVANNARA"
+                        class="hero-img"
+                        onerror="this.style.display='none'; document.getElementById('photoPlaceholder').style.display='flex';"
+                    >
+                    <div class="photo-placeholder" id="photoPlaceholder">
+                        <i class="ri-user-add-line"></i>
+                        <p>Put your photo here</p>
+                        <code>assets/images/profile.jpg</code>
+                    </div>
+
+                    <!-- Small 4×6 photo slot -->
+                    <div class="small-photo-slot">
+                        <img
+                            src="assets/images/small-photo.jpg"
+                            alt="Small Photo"
+                            class="small-photo-img"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+                        <div class="small-photo-placeholder">
+                            <i class="ri-image-add-line"></i>
+                            <span>3×4</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<!-- ====== FEATURES ====== -->
+<section class="features" id="features">
+    <div class="container">
+        <div class="section-title">
+            <span>Features</span>
+            <h1>What I Do</h1>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="ri-cpu-line"></i></div>
+                <h3>Electronic Project</h3>
+                <p>Designing and building electronic circuits, PCB layouts, microcontroller programming, and embedded systems for real-world applications.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="ri-box-3-line"></i></div>
+                <h3>3D CAD</h3>
+                <p>Creating detailed 3D models and technical drawings using Fusion 360 / SolidWorks for engineering components, enclosures, and mechanical parts.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="ri-flight-takeoff-line"></i></div>
+                <h3>Drone</h3>
+                <p>Building and programming drones from scratch — frame assembly, flight controller tuning, ESC configuration, and autonomous flight systems.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="ri-battery-charge-line"></i></div>
+                <h3>Battery Pack</h3>
+                <p>Designing custom lithium battery packs with BMS circuits, spot welding, capacity balancing, and safety protection for e-bikes, drones, and power walls.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="ri-wifi-line"></i></div>
+                <h3>IoT Project</h3>
+                <p>Developing Internet of Things solutions using ESP32, Arduino, and cloud platforms for smart monitoring, automation, and remote control systems.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="ri-printer-line"></i></div>
+                <h3>3D Design &amp; Printing Services</h3>
+                <p>Full service from 3D model design to physical print — prototyping custom parts, housings, brackets and props with FDM and resin printers.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== PORTFOLIO ====== -->
+<section class="portfolio" id="portfolio">
+    <div class="container">
+        <div class="section-title center">
+            <span>Visit my portfolio and keep your feedback</span>
+            <h1>My Portfolio</h1>
+        </div>
+        <!-- Google Drive Portfolio Files -->
+        <div class="gdrive-section">
+            <div class="gdrive-section-head">
+                <i class="ri-google-drive-line"></i>
+                <span>Portfolio Files &amp; Projects</span>
+            </div>
+            <div data-gdrive-browser="portfolio"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== RESUME ====== -->
+<section class="resume" id="resume">
+    <div class="container">
+        <div class="section-title">
+            <span>Resume</span>
+            <h1>My Background</h1>
+        </div>
+        <div class="resume-tabs">
+            <button class="tab-btn active" data-tab="education">Education</button>
+            <button class="tab-btn" data-tab="experience">Experience</button>
+            <button class="tab-btn" data-tab="skills">Skills</button>
+        </div>
+        <div class="resume-content">
+            <div class="tab-panel active" id="education">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-date">2022 – Present</span>
+                            <h3>Telecommunications &amp; Electronic Engineering</h3>
+                            <p class="timeline-company">University / Institute of Technology</p>
+                            <p>Studying signal processing, circuit design, embedded systems, RF communications, and power electronics.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-date">2019 – 2022</span>
+                            <h3>High School Diploma – Science Stream</h3>
+                            <p class="timeline-company">High School</p>
+                            <p>Focused on mathematics, physics, and chemistry — building the foundation for engineering.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-panel" id="experience">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-date">2023 – Present</span>
+                            <h3>Freelance Electronic &amp; 3D Print Services</h3>
+                            <p class="timeline-company">Self-employed</p>
+                            <p>Designing custom PCBs, building IoT devices, providing 3D printing services for clients.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-date">2023</span>
+                            <h3>Engineering Internship</h3>
+                            <p class="timeline-company">Electronics Company</p>
+                            <p>Circuit testing, component sourcing, and product assembly in a professional environment.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-date">2022 – Present</span>
+                            <h3>Drone Builder &amp; Pilot</h3>
+                            <p class="timeline-company">Personal / Competition</p>
+                            <p>Built and tuned multiple FPV and quadcopter drones. Participated in local drone events.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-panel" id="skills">
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-header"><span>Circuit Design / PCB (KiCad)</span><span>85%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header"><span>3D CAD (Fusion 360 / SolidWorks)</span><span>80%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header"><span>Arduino / ESP32 / STM32</span><span>88%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header"><span>Drone Build &amp; Betaflight Tuning</span><span>82%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header"><span>Battery Pack / BMS Design</span><span>78%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header"><span>3D Printing (FDM / Resin)</span><span>90%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== STUDENT REPORT ====== -->
+<section class="studentreport" id="studentreport">
+    <div class="container">
+        <div class="section-title">
+            <span>Academic</span>
+            <h1>Student Report</h1>
+        </div>
+        <p class="section-intro">Browse my academic reports, lab write-ups, and research papers. Click any file below to view or download from Google Drive.</p>
+        <!-- Google Drive Files Browser -->
+        <div class="gdrive-section">
+            <div class="gdrive-section-head">
+                <i class="ri-google-drive-line"></i>
+                <span>Files from Google Drive</span>
+            </div>
+            <div data-gdrive-browser="student-report"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== 3D CAD ====== -->
+<section class="cad3d" id="cad3d">
+    <div class="container">
+        <div class="section-title">
+            <span>Engineering Design</span>
+            <h1>3D CAD Models</h1>
+        </div>
+        <!-- Google Drive CAD Files -->
+        <div class="gdrive-section">
+            <div class="gdrive-section-head">
+                <i class="ri-google-drive-line"></i>
+                <span>CAD Files &amp; Downloads</span>
+            </div>
+            <div data-gdrive-browser="3d-cad"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== MY PROJECT ====== -->
+<section class="myproject" id="myproject">
+    <div class="container">
+        <div class="section-title">
+            <span>Personal Work</span>
+            <h1>My Projects</h1>
+        </div>
+        <!-- Google Drive Project Files -->
+        <div class="gdrive-section">
+            <div class="gdrive-section-head">
+                <i class="ri-google-drive-line"></i>
+                <span>Project Files &amp; Schematics</span>
+            </div>
+            <div data-gdrive-browser="my-project"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== BATTERY PACK ====== -->
+<section class="batterypack" id="batterypack">
+    <div class="container">
+        <div class="section-title">
+            <span>Energy Storage</span>
+            <h1>Battery Pack</h1>
+        </div>
+        <!-- Google Drive Battery Pack Files -->
+        <div class="gdrive-section">
+            <div class="gdrive-section-head">
+                <i class="ri-google-drive-line"></i>
+                <span>Battery Pack Documents &amp; Designs</span>
+            </div>
+            <div data-gdrive-browser="battery-pack"></div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ====== BLOG ====== -->
+<section class="blog" id="blog">
+    <div class="container">
+        <div class="section-title">
+            <span>Blog</span>
+            <h1>Latest Posts</h1>
+        </div>
+        <!-- Google Drive Blog Files -->
+        <div class="gdrive-section">
+            <div class="gdrive-section-head">
+                <i class="ri-google-drive-line"></i>
+                <span>Blog Posts &amp; Articles</span>
+            </div>
+            <div data-gdrive-browser="blog"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== CONTACT ====== -->
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="section-title">
+            <span>Contact</span>
+            <h1>Contact Me</h1>
+        </div>
+        <div class="contact-layout">
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="ri-map-pin-line"></i></div>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Phnom Penh, Cambodia</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="ri-mail-line"></i></div>
+                    <div>
+                        <h4>Email</h4>
+                        <!-- 🔗 Replace with your real email -->
+                        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="72011d04131c1c13001332171f131b1e5c111d1f">[email&#160;protected]</a></p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="ri-telegram-line"></i></div>
+                    <div>
+                        <h4>Telegram</h4>
+                        <!-- 🔗 Replace with your Telegram username -->
+                        <p>@your_telegram</p>
+                    </div>
+                </div>
+                <div class="contact-social">
+                    <a href="https://www.facebook.com/profile.php?id=100030104352977&mibextid=b06tZ0" class="social-btn" target="_blank" title="Facebook"><i class="ri-facebook-fill"></i></a>
+                    <a href="https://www.tiktok.com/@bs.power9" class="social-btn" target="_blank" title="TikTok"><i class="ri-tiktok-fill"></i></a>
+                    <a href="https://www.youtube.com/@sovannara_phorn_12" class="social-btn" target="_blank" title="YouTube"><i class="ri-youtube-fill"></i></a>
+                    <a href="https://t.me/P_Sovannara" class="social-btn" target="_blank" title="Telegram"><i class="ri-telegram-fill"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+    <div class="footer-inner">
+        <a href="#home" class="footer-logo">
+            <span class="logo-ps">PS</span><span class="logo-dot">.</span>
+        </a>
+        <p class="footer-text">© 2025 PHORN SOVANNARA. All rights reserved. Made with <span class="red">♥</span></p>
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<a href="#home" class="back-top" id="backTop"><i class="ri-arrow-up-s-line"></i></a>
+
+<!-- Typed.js -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+<!-- Swiper -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- Portfolio scripts -->
+<script src="script.js"></script>
+<!-- Google Drive File Browser -->
+<script src="files-loader.js"></script>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-dec
