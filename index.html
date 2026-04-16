@@ -36,16 +36,23 @@
 <header class="header" id="header">
     <nav class="nav container-nav">
 
-        <!--
-        ══════════════════════════════════════════════════════════
-        YOUR LOGO — Two options:
-        Option A (Text Logo — current): Keep the PS. text logo
-        Option B (Image Logo): Replace the <a> content with:
-            <img src="assets/images/logo.png" alt="Logo" style="height:38px;">
-        ══════════════════════════════════════════════════════════
-        -->
         <a href="#home" class="nav-logo">
-            <span class="logo-ps">PS</span><span class="logo-dot">.</span>
+            <!--
+            ══════════════════════════════════════════════════════════
+            IMAGE LOGO — save your logo file as: assets/images/logo.png
+            Then the image will show automatically.
+            If the image fails to load, the "PS." text logo shows instead.
+            ══════════════════════════════════════════════════════════
+            -->
+            <img
+                src="assets/images/logo.png"
+                alt="PS Logo"
+                class="logo-img"
+                onerror="this.style.display='none'; document.getElementById('logoText').style.display='flex';"
+            >
+            <span id="logoText" class="logo-text-fallback" style="display:none;">
+                <span class="logo-ps">PS</span><span class="logo-dot">.</span>
+            </span>
         </a>
 
         <div class="nav-menu" id="navMenu">
@@ -54,9 +61,9 @@
                 <li><a href="#features"      class="nav-link">Features</a></li>
                 <li><a href="#portfolio"     class="nav-link">Portfolio</a></li>
                 <li><a href="#resume"        class="nav-link">Resume</a></li>
-                <li><a href="#studentreport" class="nav-link">Student Report</a></li>
+                <li><a href="#studentreport" class="nav-link">Report</a></li>
                 <li><a href="#cad3d"         class="nav-link">3D CAD</a></li>
-                <li><a href="#myproject"     class="nav-link">My Project</a></li>
+                <li><a href="#myproject"     class="nav-link">Project</a></li>
                 <li><a href="#batterypack"   class="nav-link">Battery Pack</a></li>
                 <li><a href="#blog"          class="nav-link">Blog</a></li>
                 <li><a href="#contact"       class="nav-link">Contact Me</a></li>
@@ -65,8 +72,8 @@
 
         <div class="nav-actions">
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark mode">
-                <span class="toggle-moon"></span>
-                <span class="toggle-sun"></span>
+                <span class="toggle-moon">🌙</span>
+                <span class="toggle-sun">☀️</span>
             </button>
             <a href="#contact" class="btn btn-hire">Hire Me</a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
@@ -176,8 +183,8 @@
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon"><i class="ri-cpu-line"></i></div>
-                <h3>Electronic Project</h3>
-                <p>Designing and building electronic circuits, PCB layouts, microcontroller programming, and embedded systems for real-world applications.</p>
+                <h3>Electronic</h3>
+                <p>Designing and building electronic circuits, PCB layouts, microcontroller programming ESP32, Arduino UNO and embedded systems for real-world applications.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><i class="ri-box-3-line"></i></div>
@@ -187,7 +194,7 @@
             <div class="feature-card">
                 <div class="feature-icon"><i class="ri-flight-takeoff-line"></i></div>
                 <h3>Drone</h3>
-                <p>Building and programming drones from scratch — frame assembly, flight controller tuning, ESC configuration, and autonomous flight systems.</p>
+                <p>Frame prototype, battery drone, frame assembly, flight controller and ESC configuration for custom drone builds.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><i class="ri-battery-charge-line"></i></div>
@@ -244,19 +251,20 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card">
-                            <span class="timeline-date">2022 – Present</span>
+                            <span class="timeline-date">2021 – 2025</span>
                             <h3>Telecommunications &amp; Electronic Engineering</h3>
-                            <p class="timeline-company">University / Institute of Technology</p>
-                            <p>Studying signal processing, circuit design, embedded systems, RF communications, and power electronics.</p>
+                            <p class="timeline-company">Royal University of Phnom Penh</p>
+                            <p>Studying signal processing, circuit design, Networking, RF communications, and power electronics.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card">
-                            <span class="timeline-date">2019 – 2022</span>
-                            <h3>High School Diploma – Science Stream</h3>
-                            <p class="timeline-company">High School</p>
-                            <p>Focused on mathematics, physics, and chemistry — building the foundation for engineering.</p>
+                            <span class="timeline-date">2015 – 2021</span>
+                            <h3>High School Diploma </h3>
+                            <p class="timeline-company">Sok An Khvav high school,
+       Takeo province</p>
+                            <p></p>
                         </div>
                     </div>
                 </div>
@@ -266,28 +274,46 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card">
-                            <span class="timeline-date">2023 – Present</span>
-                            <h3>Freelance Electronic &amp; 3D Print Services</h3>
-                            <p class="timeline-company">Self-employed</p>
-                            <p>Designing custom PCBs, building IoT devices, providing 3D printing services for clients.</p>
+                            <span class="timeline-date">Present</span>
+                            <h3>Technician – Battery &amp; Solar Power Systems</h3>
+                            <p class="timeline-company">BS Power</p>
+                            <p>Worked on battery pack assembly ranging from 7.2V to 98V (5kWh – 15kWh). Knowledgeable about BMS, battery management, solar systems, and inverters. Hands-on experience with e-bike batteries, EV batteries, and solar energy installations.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card">
-                            <span class="timeline-date">2023</span>
-                            <h3>Engineering Internship</h3>
-                            <p class="timeline-company">Electronics Company</p>
-                            <p>Circuit testing, component sourcing, and product assembly in a professional environment.</p>
+                            <span class="timeline-date">Year 3, Semester 1</span>
+                            <h3>Internship – Process DIY</h3>
+                            <p class="timeline-company">Process DIY</p>
+                            <p>Worked on DIY projects related to 3D design (CAD) and design services. Operated 3D printing machines and laser cutting machines. Gained hands-on ability to design and build drone prototypes.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card">
-                            <span class="timeline-date">2022 – Present</span>
-                            <h3>Drone Builder &amp; Pilot</h3>
-                            <p class="timeline-company">Personal / Competition</p>
-                            <p>Built and tuned multiple FPV and quadcopter drones. Participated in local drone events.</p>
+                            <span class="timeline-date">2023 – 2024</span>
+                            <h3>Member – Robot Club</h3>
+                            <p class="timeline-company">Royal University of Phnom Penh</p>
+                            <p>Active member of the RUPP Robot Club. Gained new experiences in teamwork and collaboration, and learned new concepts about the engineering process.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-date">2021 – Present</span>
+                            <h3>School Experience – Theory &amp; Practice</h3>
+                            <p class="timeline-company">Royal University of Phnom Penh</p>
+                            <p>Hands-on coursework covering electronic circuits, antenna design &amp; frequency analysis, robotics &amp; data structures, PCB design, 3D design with Fusion 360, 3D printing, and PLC for automation systems.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-date">2022 – 2023</span>
+                            <h3>Volunteer – Coordinating Team for First-Year Students</h3>
+                            <p class="timeline-company">Royal University of Phnom Penh</p>
+                            <p>Coordinated and supported incoming first-year students. Developed teamwork skills, built connections with fellow students, and gained valuable new experiences from peers.</p>
                         </div>
                     </div>
                 </div>
@@ -307,11 +333,11 @@
                         <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-header"><span>Drone Build &amp; Betaflight Tuning</span><span>82%</span></div>
+                      <div class="skill-header"><span>Drone &amp; prototype</span><span>82%</span></div>
                         <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-header"><span>Battery Pack / BMS Design</span><span>78%</span></div>
+                        <div class="skill-header"><span>Battery Pack / BMS</span><span>78%</span></div>
                         <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
                     </div>
                     <div class="skill-item">
@@ -324,19 +350,19 @@
     </div>
 </section>
 
-<!-- ====== STUDENT REPORT ====== -->
+<!-- ====== Report ====== -->
 <section class="studentreport" id="studentreport">
     <div class="container">
         <div class="section-title">
             <span>Academic</span>
-            <h1>Student Report</h1>
+            <h1>Report</h1>
         </div>
-        <p class="section-intro">Browse my academic reports, lab write-ups, and research papers. Click any file below to view or download from Google Drive.</p>
+        <p class="section-intro"></p>
         <!-- Google Drive Files Browser -->
         <div class="gdrive-section">
             <div class="gdrive-section-head">
                 <i class="ri-google-drive-line"></i>
-                <span>Files from Google Drive</span>
+                <span>Files</span>
             </div>
             <div data-gdrive-browser="student-report"></div>
         </div>
@@ -366,7 +392,7 @@
     <div class="container">
         <div class="section-title">
             <span>Personal Work</span>
-            <h1>My Projects</h1>
+            <h1>Projects</h1>
         </div>
         <!-- Google Drive Project Files -->
         <div class="gdrive-section">
@@ -390,7 +416,7 @@
         <div class="gdrive-section">
             <div class="gdrive-section-head">
                 <i class="ri-google-drive-line"></i>
-                <span>Battery Pack Documents &amp; Designs</span>
+                <span>Battery Pack </span>
             </div>
             <div data-gdrive-browser="battery-pack"></div>
         </div>
@@ -437,7 +463,7 @@
                     <div>
                         <h4>Email</h4>
                         <!-- 🔗 Replace with your real email -->
-                        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="72011d04131c1c13001332171f131b1e5c111d1f">[email&#160;protected]</a></p>
+                        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="72011d04131c1c13001332171f131b1e5c111d1f">pharnsovannara4444@gmail.com</a></p>
                     </div>
                 </div>
                 <div class="contact-card">
@@ -445,7 +471,7 @@
                     <div>
                         <h4>Telegram</h4>
                         <!-- 🔗 Replace with your Telegram username -->
-                        <p>@your_telegram</p>
+                        <p> @P_Sovannara</p>
                     </div>
                 </div>
                 <div class="contact-social">
