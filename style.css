@@ -242,7 +242,7 @@ input, textarea, button { font-family:inherit; }
 /* ===== HEADER ===== */
 .header { position:fixed; top:0; left:0; right:0; z-index:1000; padding:1.2rem 0; transition:var(--t); }
 .header.scrolled { background:rgba(26,29,33,.96); backdrop-filter:blur(12px); padding:.8rem 0; box-shadow:0 4px 24px rgba(0,0,0,.4); }
-.container-nav { max-width:1300px; margin:0 auto; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.container-nav { max-width:1300px; margin:0 auto; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; overflow:hidden; min-width:0; }
 .nav-logo { display:flex; align-items:center; gap:1px; flex-shrink:0; }
 .logo-ps { font-family:var(--font-display); font-size:1.5rem; font-weight:800; color:var(--white); letter-spacing:-1px; }
 .logo-dot { font-size:1.8rem; color:var(--red); font-weight:800; line-height:1; }
@@ -587,23 +587,33 @@ input, textarea, button { font-family:inherit; }
 
 /* ── Mobile nav breakpoint ── */
 @media (max-width:900px) {
-    /* ─ Nav ─ */
+    /* ─ Nav container ─ */
+    .container-nav  { padding:0 1rem; gap:.5rem; }
+
+    /* ─ Nav menu hidden by default, slides in when .open ─ */
     .nav-menu {
-        position:fixed; top:66px; left:0; right:0;
+        position:fixed; top:62px; left:0; right:0;
         background:rgba(26,29,33,.98);
         backdrop-filter:blur(16px);
         padding:1.2rem 1.5rem 1.5rem;
         transform:translateY(-110%);
-        transition:transform .3s ease;
+        visibility:hidden;
+        transition:transform .3s ease, visibility .3s ease;
         border-bottom:1px solid var(--border);
         z-index:999;
+        overflow:hidden;
     }
     body.light-mode .nav-menu { background:rgba(240,242,245,.98); }
-    .nav-menu.open  { transform:translateY(0); }
+    .nav-menu.open  { transform:translateY(0); visibility:visible; }
     .nav-list       { flex-direction:column; align-items:stretch; gap:.15rem; }
     .nav-link       { font-size:1rem; padding:.65rem 1rem; border-radius:var(--radius-sm); }
+
+    /* ─ Show hamburger, hide hire button ─ */
     .nav-toggle     { display:flex; }
-    .btn-hire       { display:none; }          /* hide in favour of nav link */
+    .btn-hire       { display:none; }
+
+    /* ─ Nav actions only: theme toggle + lang toggle + hamburger ─ */
+    .nav-actions    { gap:.5rem; }
 
     /* ─ Home ─ */
     .home-content   { grid-template-columns:1fr; min-height:auto; padding:6rem 0 3rem; }
